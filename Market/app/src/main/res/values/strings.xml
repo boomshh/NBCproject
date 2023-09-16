@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Market</string>
+    <string name="ex">매너온도</string>
+    <string name="tem">39.2 &#8451;</string>
+    <string name="tem1">36.5°C</string>
+    <string name="tem2">13.2°C</string>
+    <string name="tem3">38.9°C</string>
+    <string name="tem4">22.5°C</string>
+    <string name="tem5">36.5°C</string>
+    <string name="tem6">37.1°C</string>
+    <string name="tem7">41.5°C</string>
+    <string name="tem8">21°C</string>
+    <string name="tem9">35°C</string>
+</resources>
