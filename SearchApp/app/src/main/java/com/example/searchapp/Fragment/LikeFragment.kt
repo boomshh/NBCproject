@@ -1,4 +1,4 @@
-package com.example.searchapp
+package com.example.searchapp.Fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
