@@ -1,19 +1,18 @@
 package com.example.searchapp.API
 
-import retrofit2.Call
+import com.example.searchapp.Constants
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.Query
-
-class KaKaoApi {
-    companion object {
-        const val BASE_URL = "https://dapi.kakao.com/"
-    }
-}
 
 interface SearchAPI {
     @GET("v2/search/image")
-    fun getAPI(
+    suspend fun getImage(
+        @Header("Authorization") Authorization: String = Constants.AUTH_HEADER,
         @Query("query") query: String,
-        @Query("size") size: Int) : Call<SearchResult>
+        @Query("size") size: Int,
+        @Query("sort") sort : String,
+        @Query("page") page : Int
+    ) : Response<SearchResult>
 }

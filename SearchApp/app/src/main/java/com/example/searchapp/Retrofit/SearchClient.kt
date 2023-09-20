@@ -1,12 +1,29 @@
-package com.example.searchapp.API
+package com.example.searchapp.Retrofit
 
-import com.example.searchapp.BuildConfig
+
+import com.example.searchapp.API.SearchAPI
+import com.example.searchapp.Constants
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object SearchClient {
+
+    private val retrofit by lazy {
+        val interceptor = HttpLoggingInterceptor()
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
+
+        Retrofit.Builder()
+            .baseUrl(Constants.BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(OkHttpClient.Builder().addInterceptor(interceptor).build())
+            .build()
+    }
+
+    val api: SearchAPI by lazy {
+        retrofit.create(SearchAPI::class.java)
+    }
 
 
 

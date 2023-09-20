@@ -1,10 +1,10 @@
-package com.example.searchapp.MyAdapter
+package com.example.searchapp
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.searchapp.Fragment.LikeFragment
-import com.example.searchapp.Fragment.SearchFragment
+import com.example.searchapp.Like.LikeFragment
+import com.example.searchapp.Search.SearchFragment
 
 class ViewPagerAdapter (fragmentActivity: FragmentActivity) : FragmentStateAdapter(fragmentActivity){
 
@@ -18,7 +18,5 @@ class ViewPagerAdapter (fragmentActivity: FragmentActivity) : FragmentStateAdapt
         return fragments[position]
     }
 
-    fun getFragment(position: Int): Fragment {
-        return fragments[position]
-    }
+
 }
