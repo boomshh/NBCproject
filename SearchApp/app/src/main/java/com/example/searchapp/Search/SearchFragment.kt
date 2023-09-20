@@ -1,7 +1,9 @@
 package com.example.searchapp.Search
 
 import android.content.Context
+import android.content.res.Resources
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.bumptech.glide.load.engine.Resource
 import com.example.searchapp.R
 import com.example.searchapp.ViewModel.SearchRepository
 import com.example.searchapp.ViewModel.SearchViewModel
@@ -50,11 +53,16 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
     }
 
     private fun setUpView() {
+
         gridManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         binding.recyclerView.layoutManager = gridManager
 
+        val gridItemDecoration = GridItemDecoration(spanCount = 2, spacing = 16f.fromDpToPx())
+        binding.recyclerView.addItemDecoration(gridItemDecoration)
+
         adapter = SearchAdapter(mContext)
         binding.recyclerView.adapter = adapter
+
         binding.recyclerView.itemAnimator = null
 
         binding.searchBtn.setOnClickListener {
@@ -64,7 +72,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
 
     private fun performSearch() {
         val query = binding.editText.text.toString()
-        val sort = "accuracy"
+        val sort = "recency"
 
         viewModel = SearchViewModel(SearchRepository())
         viewModel = ViewModelProvider(this, ViewModelFactory(SearchRepository())).get(SearchViewModel::class.java)
@@ -79,6 +87,9 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
             }
         })
     }
+
+    fun Float.fromDpToPx() : Int =
+        (this * Resources.getSystem().displayMetrics.density).toInt()
 
 
 }
