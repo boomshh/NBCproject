@@ -9,6 +9,4 @@ class SearchRepository {
         return SearchClient.api.getImage(query = query, sort = sort, page= 1, size= 80)
     }
 
-
-
 }

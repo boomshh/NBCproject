@@ -9,7 +9,6 @@ data class SearchResult(
     @SerializedName("meta")
     val metaData: MetaData?
 )
-
 data class MetaData(
     @SerializedName("total_count")
     val totalCount: Int,

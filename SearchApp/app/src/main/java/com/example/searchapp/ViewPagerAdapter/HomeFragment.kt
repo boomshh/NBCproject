@@ -1,4 +1,4 @@
-package com.example.searchapp
+package com.example.searchapp.ViewPagerAdapter
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager2.widget.ViewPager2
+import com.example.searchapp.SearchItem
 import com.example.searchapp.databinding.FragmentHomeBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -14,6 +15,7 @@ class HomeFragment : Fragment() {
 
     private lateinit var binding : FragmentHomeBinding
     private val tabTextList = listOf("검색", "찜")
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,6 +30,6 @@ class HomeFragment : Fragment() {
         }.attach()
 
         return binding.root
-
     }
+
 }

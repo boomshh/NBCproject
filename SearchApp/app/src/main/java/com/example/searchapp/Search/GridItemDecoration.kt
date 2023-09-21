@@ -1,5 +1,6 @@
 package com.example.searchapp.Search
 
+import android.content.res.Resources
 import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

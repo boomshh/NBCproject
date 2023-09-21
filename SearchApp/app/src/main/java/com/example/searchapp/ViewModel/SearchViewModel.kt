@@ -16,6 +16,4 @@ class SearchViewModel(private val searchRepository: SearchRepository) : ViewMode
             myResponse.value = response
         }
     }
-
-
 }

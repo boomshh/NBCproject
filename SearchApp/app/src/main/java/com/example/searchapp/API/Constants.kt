@@ -1,7 +1,6 @@
-package com.example.searchapp
+package com.example.searchapp.API
 
 class Constants {
-
     companion object {
         const val BASE_URL = "https://dapi.kakao.com/"
 

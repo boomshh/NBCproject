@@ -2,7 +2,7 @@ package com.example.searchapp.Retrofit
 
 
 import com.example.searchapp.API.SearchAPI
-import com.example.searchapp.Constants
+import com.example.searchapp.API.Constants
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
