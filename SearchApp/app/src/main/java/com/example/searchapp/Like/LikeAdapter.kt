@@ -1,6 +1,7 @@
 package com.example.searchapp.Like
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +16,13 @@ class LikedAdapter(private val context: Context) : RecyclerView.Adapter<LikedAda
 
     var likedItems = mutableListOf<SearchItem>()
 
+    fun update(newLikedItems: List<SearchItem>) {
+        likedItems.clear()
+        likedItems.addAll(newLikedItems)
+        notifyDataSetChanged()
 
+        Log.d("test2", "${likedItems.size}")
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -33,6 +40,7 @@ class LikedAdapter(private val context: Context) : RecyclerView.Adapter<LikedAda
             .into(holder.thumbnail)
         holder.title.text = item.title
         holder.data.text = item.dataTime
+        Log.d("test5", "dd")
     }
 
     inner class ViewHolder(private val binding: ItemBinding) :

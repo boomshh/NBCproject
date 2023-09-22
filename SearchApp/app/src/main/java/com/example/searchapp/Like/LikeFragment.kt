@@ -3,20 +3,17 @@ package com.example.searchapp.Like
 import android.content.Context
 import android.content.res.Resources
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.searchapp.MainActivity
 import com.example.searchapp.R
 import com.example.searchapp.Search.GridItemDecoration
-import com.example.searchapp.Search.SearchAdapter
 import com.example.searchapp.SearchItem
-import com.example.searchapp.ViewPagerAdapter.HomeFragment
 import com.example.searchapp.databinding.FragmentLikeBinding
-import com.example.searchapp.databinding.FragmentSearchBinding
 
 
 class LikeFragment : Fragment(R.layout.fragment_like) {
@@ -45,6 +42,7 @@ class LikeFragment : Fragment(R.layout.fragment_like) {
 
         adapter = LikedAdapter(mContext).apply {
             likedItems = likedItem.toMutableList()
+            Log.d("test4", "$likedItems")
         }
 
         setUpView()
@@ -65,6 +63,12 @@ class LikeFragment : Fragment(R.layout.fragment_like) {
 
         binding.likeRecycler.itemAnimator = null
 
+    }
+
+    fun updateItems(newItems : List<SearchItem>) {
+        if(::adapter.isInitialized) {
+            adapter.update(newItems)
+        }
     }
 
     fun Float.fromDpToYx() : Int =

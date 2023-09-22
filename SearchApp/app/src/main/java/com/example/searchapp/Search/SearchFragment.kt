@@ -12,7 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.searchapp.R
 import com.example.searchapp.ViewModel.SearchRepository
-import com.example.searchapp.ViewModel.SearchViewModel
+import com.example.searchapp.ViewModel.MainViewModel
 import com.example.searchapp.ViewModel.ViewModelFactory
 //import com.example.searchapp.ViewModel.SearchRepository
 //import com.example.searchapp.ViewModel.SearchViewModel
@@ -24,7 +24,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
     private lateinit var binding: FragmentSearchBinding
     private lateinit var adapter: SearchAdapter
     private lateinit var mContext: Context
-    private lateinit var viewModel: SearchViewModel
+    private lateinit var viewModel: MainViewModel
     private lateinit var gridManager : StaggeredGridLayoutManager
 
 
@@ -43,7 +43,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
 
         val searchRepository = SearchRepository()
         val viewModelFactory = ViewModelFactory(searchRepository)
-        viewModel = ViewModelProvider(this, viewModelFactory).get(SearchViewModel::class.java)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
 
         setUpView()
 
@@ -73,8 +73,8 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         val query = binding.editText.text.toString()
         val sort = "recency"
 
-        viewModel = SearchViewModel(SearchRepository())
-        viewModel = ViewModelProvider(this, ViewModelFactory(SearchRepository())).get(SearchViewModel::class.java)
+        viewModel = MainViewModel(SearchRepository())
+        viewModel = ViewModelProvider(this, ViewModelFactory(SearchRepository())).get(MainViewModel::class.java)
         viewModel.search(query,sort)
 
         viewModel.myResponse.observe(viewLifecycleOwner, Observer { response ->
@@ -86,8 +86,6 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
             }
         })
     }
-
-
 
     fun Float.fromDpToPx() : Int =
         (this * Resources.getSystem().displayMetrics.density).toInt()

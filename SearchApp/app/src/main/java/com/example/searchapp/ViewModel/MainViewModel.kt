@@ -7,7 +7,7 @@ import com.example.searchapp.API.SearchResult
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
-class SearchViewModel(private val searchRepository: SearchRepository) : ViewModel() {
+class MainViewModel(private val searchRepository: SearchRepository) : ViewModel() {
     val myResponse : MutableLiveData<Response<SearchResult>> = MutableLiveData()
 
     fun search(query: String, sort: String) {
