@@ -5,7 +5,7 @@ import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Query
 
-interface SearchAPI {
+interface SearchInterface {
     @GET("v2/search/image")
     suspend fun getImage(
         @Header("Authorization") Authorization: String = Constants.AUTH_HEADER,

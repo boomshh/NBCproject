@@ -12,18 +12,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.searchapp.API.SearchInfo
 import com.example.searchapp.MainActivity
-import com.example.searchapp.SearchItem
+import com.example.searchapp.SearchItems
 import com.example.searchapp.databinding.ItemBinding
 
     class SearchAdapter(private val context: Context) :
         RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
 
-        private var items = ArrayList<SearchItem>()
+        private var items = ArrayList<SearchItems>()
 
         fun setItems(newItem: List<SearchInfo>) {
             items.clear()
             items.addAll(newItem.map { searchInfo ->
-                SearchItem(
+                SearchItems(
                     thumbnail = searchInfo.thumbnailUrl,
                     title = searchInfo.siteName,
                     dataTime = searchInfo.dataTime

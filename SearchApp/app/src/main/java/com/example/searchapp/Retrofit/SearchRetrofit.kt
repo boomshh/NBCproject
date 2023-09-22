@@ -1,14 +1,14 @@
 package com.example.searchapp.Retrofit
 
 
-import com.example.searchapp.API.SearchAPI
+import com.example.searchapp.API.SearchInterface
 import com.example.searchapp.API.Constants
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object SearchClient {
+object SearchRetrofit {
 
     private val retrofit by lazy {
         val interceptor = HttpLoggingInterceptor()
@@ -21,8 +21,8 @@ object SearchClient {
             .build()
     }
 
-    val api: SearchAPI by lazy {
-        retrofit.create(SearchAPI::class.java)
+    val api: SearchInterface by lazy {
+        retrofit.create(SearchInterface::class.java)
     }
 
 

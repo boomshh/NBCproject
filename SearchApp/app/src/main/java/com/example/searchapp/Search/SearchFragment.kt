@@ -14,9 +14,6 @@ import com.example.searchapp.R
 import com.example.searchapp.ViewModel.SearchRepository
 import com.example.searchapp.ViewModel.MainViewModel
 import com.example.searchapp.ViewModel.ViewModelFactory
-//import com.example.searchapp.ViewModel.SearchRepository
-//import com.example.searchapp.ViewModel.SearchViewModel
-//import com.example.searchapp.ViewModel.ViewModelFactory
 import com.example.searchapp.databinding.FragmentSearchBinding
 
 class SearchFragment : Fragment(R.layout.fragment_search) {

@@ -6,7 +6,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.searchapp.Like.LikeFragment
 import com.example.searchapp.Search.SearchFragment
 
-class ViewPagerAdapter (fragmentActivity: FragmentActivity) : FragmentStateAdapter(fragmentActivity){
+class ViewPagerAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapter(fragmentActivity){
 
     private var fragments: ArrayList<Fragment> = arrayListOf(SearchFragment(), LikeFragment())
 

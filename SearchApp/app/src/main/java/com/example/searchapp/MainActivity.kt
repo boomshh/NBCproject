@@ -3,7 +3,6 @@ package com.example.searchapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.FragmentTransaction
 import androidx.viewpager2.widget.ViewPager2
 import com.example.searchapp.Like.LikeFragment
 import com.example.searchapp.Like.LikedAdapter
@@ -17,13 +16,15 @@ class MainActivity : AppCompatActivity() {
     private val viewPagerAdapter by lazy {ViewPagerAdapter(this)}
     private lateinit var likedAdapter: LikedAdapter
 
+
     private val tabTextList = listOf("검색", "찜")
 
-    var likedItem : ArrayList<SearchItem> = ArrayList()
+    var likedItem : ArrayList<SearchItems> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
 
         binding.viewPager2.adapter = viewPagerAdapter
         binding.viewPager2.orientation = ViewPager2.ORIENTATION_HORIZONTAL
@@ -36,7 +37,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun addLikedItem(item: SearchItem) {
+    fun addLikedItem(item: SearchItems) {
         if(!likedItem.contains(item)) {
             likedItem.add(item)
             likedAdapter.update(likedItem)
@@ -46,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun removeItem(item: SearchItem) {
+    fun removeItem(item: SearchItems) {
         likedItem.remove(item)
         likedAdapter.update(likedItem)
         updateItems()
@@ -54,7 +55,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun updateItems () {
+    private fun updateItems () {
         val likeFragment = viewPagerAdapter.getFragment(1) as LikeFragment
         likeFragment.updateItems(likedItem)
     }

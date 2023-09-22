@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.searchapp.MainActivity
 import com.example.searchapp.R
 import com.example.searchapp.Search.GridItemDecoration
-import com.example.searchapp.SearchItem
+import com.example.searchapp.SearchItems
 import com.example.searchapp.databinding.FragmentLikeBinding
 
 
@@ -23,7 +23,7 @@ class LikeFragment : Fragment(R.layout.fragment_like) {
     private lateinit var gridManager : StaggeredGridLayoutManager
     private lateinit var mContext: Context
 
-    private var likedItem: List<SearchItem> = listOf()
+    private var likedItem: List<SearchItems> = listOf()
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -65,7 +65,7 @@ class LikeFragment : Fragment(R.layout.fragment_like) {
 
     }
 
-    fun updateItems(newItems : List<SearchItem>) {
+    fun updateItems(newItems : List<SearchItems>) {
         if(::adapter.isInitialized) {
             adapter.update(newItems)
         }

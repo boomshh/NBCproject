@@ -9,14 +9,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.searchapp.SearchItem
+import com.example.searchapp.SearchItems
 import com.example.searchapp.databinding.ItemBinding
 
 class LikedAdapter(private val context: Context) : RecyclerView.Adapter<LikedAdapter.ViewHolder>() {
 
-    var likedItems = mutableListOf<SearchItem>()
+    var likedItems = mutableListOf<SearchItems>()
 
-    fun update(newLikedItems: List<SearchItem>) {
+    fun update(newLikedItems: List<SearchItems>) {
         likedItems.clear()
         likedItems.addAll(newLikedItems)
         notifyDataSetChanged()
